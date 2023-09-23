@@ -79,8 +79,8 @@ extension MealDetailViewController {
         tableView.register(MultipleContentsTableViewCell.self, forCellReuseIdentifier: MultipleContentsTableViewCell.identifier)
         tableView.register(MealDetailFooterTableViewCell.self, forCellReuseIdentifier: MealDetailFooterTableViewCell.identifier)
         
-        view.addSubview(loadingIndicatorView)
         view.addSubview(tableView)
+        view.addSubview(loadingIndicatorView)
         
         loadingIndicatorView.snp.makeConstraints({ make in
             make.center.equalToSuperview()
