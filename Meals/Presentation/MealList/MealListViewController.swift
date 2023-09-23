@@ -32,6 +32,12 @@ final class MealListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapFab), for: .touchUpInside)
         return button
     }()
+    private lazy var errorView = {
+        let view = ErrorView()
+        view.delegate = self
+        view.isHidden = true
+        return view
+    }()
     
     private let viewModel: MealListViewModelProtocol
     private let bag = DisposeBag()
@@ -77,6 +83,7 @@ extension MealListViewController {
         collectionView.register(ThumbnailCollectionViewCell.self, forCellWithReuseIdentifier: ThumbnailCollectionViewCell.identifier)
         collectionView.register(HeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderReusableView.identifier)
         
+        view.addSubview(errorView)
         view.addSubview(collectionView)
         view.addSubview(loadingIndicatorView)
         view.addSubview(fab)
@@ -96,6 +103,10 @@ extension MealListViewController {
             make.width.equalTo(60)
             make.height.equalTo(60)
         })
+        errorView.snp.makeConstraints({ make in
+            make.top.equalToSuperview().offset(16)
+            make.horizontalEdges.equalToSuperview().offset(16)
+        })
         
     }
     
@@ -106,15 +117,16 @@ extension MealListViewController {
                 switch event {
                 case .next(_):
                     self.collectionView.reload()
+                    self.errorView.isHidden = true
                 case .error(let error):
                     guard let error = error as? BaseErrors else {
                         return
                     }
-                    print(error)
                     switch (error) {
                     default:
                         self.wireframe.showAlert(from: self, title: "Failed", body: "Failed to get meals with the letter 'A', please try again later.")
                     }
+                    self.errorView.isHidden = false
                 case .completed:
                     return
                 }
@@ -191,9 +203,12 @@ extension MealListViewController: UICollectionViewDelegate, UICollectionViewData
     }
 }
 
-extension MealListViewController: MealListConfigDelegate {
+extension MealListViewController: MealListConfigDelegate, ErrorViewDelegate {
     func didChoose(letter: String) {
         selectedLetter = letter
         viewModel.onLoad(with: letter)
+    }
+    func didTapButton() {
+        viewModel.onLoad(with: selectedLetter)
     }
 }
