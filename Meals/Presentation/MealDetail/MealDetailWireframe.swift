@@ -22,4 +22,9 @@ final class MealDetailWireframe {
         let vc = create(id: id)
         from.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func showAlert(from: UIViewController, title: String, body: String, handler : ((UIAlertAction) -> Void)?) {
+        let alert = from.createAlert(title, body, handler)
+        from.present(alert, animated: true)
+    }
 }

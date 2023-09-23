@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		47DB044594DFD40DDBA217B1 /* Pods_Meals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C5C5D4BFE76058794D42E03 /* Pods_Meals.framework */; };
+		6252C2F22ABEC37D005CE71D /* MealDetailHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6252C2F12ABEC37D005CE71D /* MealDetailHeaderTableViewCell.swift */; };
+		6252C2F42ABEC42F005CE71D /* MultipleContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6252C2F32ABEC42F005CE71D /* MultipleContentsTableViewCell.swift */; };
+		6252C2F62ABEC6FA005CE71D /* MealDetailFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6252C2F52ABEC6FA005CE71D /* MealDetailFooterTableViewCell.swift */; };
+		6252C2F82ABEE09A005CE71D /* UIViewController+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6252C2F72ABEE09A005CE71D /* UIViewController+Height.swift */; };
+		6252C2FA2ABEE186005CE71D /* SingleContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6252C2F92ABEE186005CE71D /* SingleContentTableViewCell.swift */; };
+		6252C2FC2ABEE7DF005CE71D /* ContentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6252C2FB2ABEE7DF005CE71D /* ContentItemCollectionViewCell.swift */; };
+		6252C2FE2ABF025A005CE71D /* PanZoomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6252C2FD2ABF025A005CE71D /* PanZoomImageView.swift */; };
 		62C961002ABD6B130072C8FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C960FF2ABD6B130072C8FA /* AppDelegate.swift */; };
 		62C961022ABD6B130072C8FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C961012ABD6B130072C8FA /* SceneDelegate.swift */; };
 		62C961092ABD6B180072C8FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C961082ABD6B180072C8FA /* Assets.xcassets */; };
@@ -62,6 +69,13 @@
 /* Begin PBXFileReference section */
 		1AA0AB7C572548E4E9F8EC21 /* Pods_MealsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MealsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607A6500DC27A0DE8F631A26 /* Pods-MealsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealsTests.debug.xcconfig"; path = "Target Support Files/Pods-MealsTests/Pods-MealsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6252C2F12ABEC37D005CE71D /* MealDetailHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		6252C2F32ABEC42F005CE71D /* MultipleContentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleContentsTableViewCell.swift; sourceTree = "<group>"; };
+		6252C2F52ABEC6FA005CE71D /* MealDetailFooterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailFooterTableViewCell.swift; sourceTree = "<group>"; };
+		6252C2F72ABEE09A005CE71D /* UIViewController+Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Height.swift"; sourceTree = "<group>"; };
+		6252C2F92ABEE186005CE71D /* SingleContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleContentTableViewCell.swift; sourceTree = "<group>"; };
+		6252C2FB2ABEE7DF005CE71D /* ContentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		6252C2FD2ABF025A005CE71D /* PanZoomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanZoomImageView.swift; sourceTree = "<group>"; };
 		62C960FC2ABD6B130072C8FA /* Meals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C960FF2ABD6B130072C8FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62C961012ABD6B130072C8FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +152,41 @@
 				C0F047A810E9414A051D32C3 /* Pods-MealsTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		6252C2ED2ABEC302005CE71D /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				62C961772ABDE0660072C8FA /* HeaderReusableView.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		6252C2EE2ABEC310005CE71D /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				62C961732ABDDDDD0072C8FA /* ThumbnailCollectionViewCell.swift */,
+				6252C2FB2ABEE7DF005CE71D /* ContentItemCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		6252C2EF2ABEC318005CE71D /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				6252C2F32ABEC42F005CE71D /* MultipleContentsTableViewCell.swift */,
+				6252C2F92ABEE186005CE71D /* SingleContentTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		6252C2F02ABEC333005CE71D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6252C2F12ABEC37D005CE71D /* MealDetailHeaderTableViewCell.swift */,
+				6252C2F52ABEC6FA005CE71D /* MealDetailFooterTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		62C960F32ABD6B130072C8FA = {
@@ -316,6 +365,7 @@
 		62C961542ABDB8790072C8FA /* MealDetail */ = {
 			isa = PBXGroup;
 			children = (
+				6252C2F02ABEC333005CE71D /* Cells */,
 				62C9615D2ABDBA8D0072C8FA /* MealDetailViewController.swift */,
 				62C9615F2ABDBA9D0072C8FA /* MealDetailWireframe.swift */,
 				62C961612ABDBAA70072C8FA /* MealDetailViewModel.swift */,
@@ -331,6 +381,7 @@
 				62C9616D2ABDC0C50072C8FA /* UIView+Corner.swift */,
 				62C961752ABDDF240072C8FA /* UIViewController+Alert.swift */,
 				62C9618C2ABDF3BD0072C8FA /* UIViewController+Keyboard.swift */,
+				6252C2F72ABEE09A005CE71D /* UIViewController+Height.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -348,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				62C9616B2ABDC0AC0072C8FA /* LoadingView.swift */,
+				6252C2FD2ABF025A005CE71D /* PanZoomImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,8 +407,9 @@
 		62C9616A2ABDC0850072C8FA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				62C961732ABDDDDD0072C8FA /* ThumbnailCollectionViewCell.swift */,
-				62C961772ABDE0660072C8FA /* HeaderReusableView.swift */,
+				6252C2EF2ABEC318005CE71D /* TableViewCells */,
+				6252C2EE2ABEC310005CE71D /* CollectionViewCells */,
+				6252C2ED2ABEC302005CE71D /* ReusableViews */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -586,8 +639,12 @@
 				62C961482ABDB3DD0072C8FA /* MealModel.swift in Sources */,
 				62C961392ABDAF700072C8FA /* MealsRepository.swift in Sources */,
 				62C9615E2ABDBA8D0072C8FA /* MealDetailViewController.swift in Sources */,
+				6252C2FE2ABF025A005CE71D /* PanZoomImageView.swift in Sources */,
+				6252C2F62ABEC6FA005CE71D /* MealDetailFooterTableViewCell.swift in Sources */,
 				62C961762ABDDF240072C8FA /* UIViewController+Alert.swift in Sources */,
 				62C961002ABD6B130072C8FA /* AppDelegate.swift in Sources */,
+				6252C2FA2ABEE186005CE71D /* SingleContentTableViewCell.swift in Sources */,
+				6252C2F42ABEC42F005CE71D /* MultipleContentsTableViewCell.swift in Sources */,
 				62C9615A2ABDB8B10072C8FA /* MealListViewModelProtocol.swift in Sources */,
 				62C961522ABDB7340072C8FA /* GetMealByIdUseCaseProtocol.swift in Sources */,
 				62C9614D2ABDB69A0072C8FA /* FetchMealsByLetterUseCaseProtocol.swift in Sources */,
@@ -595,6 +652,7 @@
 				62C961642ABDBAB40072C8FA /* MealDetailViewModelProtocol.swift in Sources */,
 				62C9617D2ABDE3610072C8FA /* MealListConfigViewController.swift in Sources */,
 				62C961402ABDB2890072C8FA /* BaseErrors.swift in Sources */,
+				6252C2F22ABEC37D005CE71D /* MealDetailHeaderTableViewCell.swift in Sources */,
 				62C9614A2ABDB67D0072C8FA /* FetchMealsByLetterUseCase.swift in Sources */,
 				62C961862ABDF16B0072C8FA /* SearchViewModelProtocol.swift in Sources */,
 				62C961022ABD6B130072C8FA /* SceneDelegate.swift in Sources */,
@@ -604,9 +662,11 @@
 				62C961672ABDC02E0072C8FA /* UIScrollView+Reload.swift in Sources */,
 				62C961742ABDDDDD0072C8FA /* ThumbnailCollectionViewCell.swift in Sources */,
 				62C961372ABDAF600072C8FA /* ApiClient.swift in Sources */,
+				6252C2FC2ABEE7DF005CE71D /* ContentItemCollectionViewCell.swift in Sources */,
 				62C9613D2ABDB0090072C8FA /* MealsResponseModel.swift in Sources */,
 				62C961602ABDBA9D0072C8FA /* MealDetailWireframe.swift in Sources */,
 				62C9615C2ABDB8C00072C8FA /* MealListViewController.swift in Sources */,
+				6252C2F82ABEE09A005CE71D /* UIViewController+Height.swift in Sources */,
 				62C961562ABDB8920072C8FA /* MealListWireframe.swift in Sources */,
 				62C9618D2ABDF3BD0072C8FA /* UIViewController+Keyboard.swift in Sources */,
 				62C9613B2ABDAF7F0072C8FA /* MealsRepositoryProtocol.swift in Sources */,
@@ -788,9 +848,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sendo.Meals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -817,9 +880,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sendo.Meals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
