@@ -161,7 +161,6 @@ extension MealListViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailCollectionViewCell.identifier,
                                                             for: indexPath) as? ThumbnailCollectionViewCell
         else { return UICollectionViewCell() }

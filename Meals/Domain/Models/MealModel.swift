@@ -15,6 +15,5 @@ struct MealModel {
     let tags: String
     let youtube: String
     let ingredients: [String]
-    let measures: [String]
     let source: String
 }
