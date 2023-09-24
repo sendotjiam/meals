@@ -353,7 +353,6 @@
 				62C961682ABDC0730072C8FA /* Reusables */,
 				62C961542ABDB8790072C8FA /* MealDetail */,
 				62C961532ABDB86D0072C8FA /* MealList */,
-				62FE0FC82AC06F4A008945B1 /* ViewImageViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -485,6 +484,7 @@
 		62C961692ABDC0810072C8FA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				62FE0FC82AC06F4A008945B1 /* ViewImageViewController.swift */,
 				62C9616B2ABDC0AC0072C8FA /* LoadingView.swift */,
 				6252C2FD2ABF025A005CE71D /* PanZoomImageView.swift */,
 				6252C3002ABF1C27005CE71D /* ErrorView.swift */,
