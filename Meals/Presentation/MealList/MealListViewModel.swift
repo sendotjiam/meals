@@ -15,6 +15,7 @@ final class MealListViewModel {
     var dataSubject = PublishSubject<Void>()
     
     var displayData = [MealModel]()
+    var selectedLetter: String = "A"
     
     private let useCase: FetchMealsByLetterUseCaseProtocol
     private let bag = DisposeBag()
@@ -26,9 +27,12 @@ final class MealListViewModel {
 }
 
 extension MealListViewModel: MealListViewModelProtocol {
-    func onLoad(with letter: String) {
+    func onLoad() {
+        if let selectedLetter = UserDefaults.standard.string(forKey: "selected_letter") {
+            self.selectedLetter = selectedLetter
+        }
         loadingSubject.accept(true)
-        useCase.execute(with: letter).subscribe({ [weak self] event in
+        useCase.execute(with: selectedLetter).subscribe({ [weak self] event in
             guard let self else { return }
             switch event {
             case .next(let models):
@@ -41,5 +45,9 @@ extension MealListViewModel: MealListViewModelProtocol {
             }
             self.loadingSubject.accept(false)
         }).disposed(by: bag)
+    }
+    
+    func updateSelectedLetter(letter: String) {
+        UserDefaults.standard.set(letter, forKey: "selected_letter")
     }
 }

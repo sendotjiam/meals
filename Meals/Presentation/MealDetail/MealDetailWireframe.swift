@@ -27,4 +27,8 @@ final class MealDetailWireframe {
         let alert = from.createAlert(title, body, handler)
         from.present(alert, animated: true)
     }
+    
+    func present(viewController: UIViewController, from: UIViewController) {
+        from.present(viewController, animated: true)
+    }
 }

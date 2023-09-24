@@ -14,7 +14,9 @@ protocol MealListViewModelProtocol {
     var dataSubject: PublishSubject<Void> { get }
     
     var displayData: [MealModel] { get }
+    var selectedLetter: String { get }
     
-    func onLoad(with letter: String)
+    func onLoad()
+    func updateSelectedLetter(letter: String)
 }
 

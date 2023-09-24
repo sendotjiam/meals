@@ -153,6 +153,7 @@ extension MealDetailViewController: UITableViewDelegate, UITableViewDataSource {
                   let model = viewModel.displayData else {
                 return UITableViewCell()
             }
+            cell.delegate = self
             cell.configure(with: model)
             return cell
         case .instructions:
@@ -194,7 +195,17 @@ extension MealDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MealDetailViewController: MealDetailFoooterDelegate {
+extension MealDetailViewController: MealDetailHeaderDelegate, MealDetailFoooterDelegate {
+    func didTapImage() {
+        guard let urlString = viewModel.displayData?.thumbnail else {
+            return
+        }
+        let vc = ViewImageViewController()
+        vc.configure(urlString: urlString)
+        vc.modalPresentationStyle = .overFullScreen
+        wireframe.present(viewController: vc, from: self)
+    }
+    
     func didTapLink(url: URL) {
         openSafariVC(url : url)
     }
