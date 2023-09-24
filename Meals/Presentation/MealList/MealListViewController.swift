@@ -83,10 +83,10 @@ extension MealListViewController {
         collectionView.register(ThumbnailCollectionViewCell.self, forCellWithReuseIdentifier: ThumbnailCollectionViewCell.identifier)
         collectionView.register(HeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderReusableView.identifier)
         
-        view.addSubview(errorView)
         view.addSubview(collectionView)
         view.addSubview(loadingIndicatorView)
         view.addSubview(fab)
+        view.addSubview(errorView)
         
         fab.snp.makeConstraints({ make in
             make.centerX.equalToSuperview()

@@ -20,7 +20,7 @@ final class MealDetailHeaderTableViewCell: UITableViewCell {
     private lazy var nameLabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
     
@@ -93,12 +93,12 @@ extension MealDetailHeaderTableViewCell {
             make.width.equalTo(screenWidth).priority(.required)
         })
         nameLabel.snp.makeConstraints({ make in
-            make.top.equalTo(posterImageView.snp_bottomMargin).offset(16)
+            make.top.equalTo(posterImageView.snp_bottomMargin).offset(32)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
         })
         areaLabel.snp.makeConstraints({ make in
-            make.top.equalTo(nameLabel.snp_bottomMargin).offset(16).priority(.high)
+            make.top.equalTo(nameLabel.snp_bottomMargin).offset(24).priority(.high)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
         })
