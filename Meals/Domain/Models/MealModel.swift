@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MealModel {
+struct MealModel : Equatable {
     let id: String
     let name: String
     let category, area, instructions: String
