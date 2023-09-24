@@ -25,7 +25,7 @@ final class MealListViewModelTests: XCTestCase {
         sut = MealListViewModel(with: useCase)
         let meals = MockData.generateMealsModel()
         useCase.fetchMealsByLetterReturnValue = .just(meals)
-        sut.onLoad(with: "A")
+        sut.onLoad()
         let result = sut.displayData
         XCTAssertEqual(result, meals)
     }
@@ -36,7 +36,7 @@ final class MealListViewModelTests: XCTestCase {
         sut.dataSubject.subscribe(onError: { error in
             XCTAssertEqual(error as! BaseErrors, BaseErrors.anyError)
         }).disposed(by: bag)
-        sut.onLoad(with: "A")
+        sut.onLoad()
     }
     
 }
