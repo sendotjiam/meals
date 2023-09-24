@@ -7,13 +7,22 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
+
+protocol MealDetailHeaderDelegate: AnyObject {
+    func didTapImage()
+}
 
 final class MealDetailHeaderTableViewCell: UITableViewCell {
     
     static let identifier = "MealDetailHeaderTableViewCell"
     
     private lazy var posterImageView = {
-        let imageView = PanZoomImageView()
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tap)
         return imageView
     }()
     
@@ -55,6 +64,8 @@ final class MealDetailHeaderTableViewCell: UITableViewCell {
         return label
     }()
     
+    weak var delegate: MealDetailHeaderDelegate?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -70,9 +81,14 @@ final class MealDetailHeaderTableViewCell: UITableViewCell {
     
     func configure(with model: MealModel) {
         let url = URL(string: model.thumbnail)
-        posterImageView.configure(imageUrl: url)
+        posterImageView.kf.setImage(with: url,
+                                    options: [
+                                        .transition(.fade(0.3)),
+                                        .cacheOriginalImage
+                                    ])
         nameLabel.text = model.name
         areaLabel.text = "\(model.area) cuisines"
+        categoryView.backgroundColor = CategoryBadgeColors.generateColor(from: model.category)
         categoryLabel.text = model.category
     }
     
@@ -107,5 +123,9 @@ extension MealDetailHeaderTableViewCell {
             make.leading.equalToSuperview().offset(16)
             make.bottom.equalToSuperview().offset(-8)
         })
+    }
+    
+    @objc private func didTapImage() {
+        delegate?.didTapImage()
     }
 }

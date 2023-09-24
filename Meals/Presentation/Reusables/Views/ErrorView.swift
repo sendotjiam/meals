@@ -23,9 +23,10 @@ final class ErrorView: UIView {
     private lazy var titleLabel = {
        let label = UILabel()
         label.text = "Unable to get the information that you wanted, please try again later."
-        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.font = .systemFont(ofSize: 14)
         label.numberOfLines = 2
-        label.textColor = .black.withAlphaComponent(0.6)
+        label.textColor = .black
+            .withAlphaComponent(0.8)
         label.textAlignment =  .center
         return label
     }()
@@ -33,10 +34,11 @@ final class ErrorView: UIView {
     private lazy var actionButton = {
         let button = UIButton()
         button.roundCorner(with: 10)
-        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
+        button.titleLabel?.font = .systemFont(ofSize: 14)
         button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        button.contentEdgeInsets = .init(top: 8, left: 12, bottom: 8, right: 12)
         return button
     }()
     
@@ -52,14 +54,16 @@ final class ErrorView: UIView {
     }
     
     private func setupViews() {
+        backgroundColor = .white
         addSubview(imageView)
         addSubview(titleLabel)
         addSubview(actionButton)
         
         imageView.snp.makeConstraints({ make in
-            make.center.equalToSuperview()
-            make.width.equalTo(200)
-            make.height.equalTo(200)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-32)
+            make.width.equalTo(180)
+            make.height.equalTo(180)
         })
         
         titleLabel.snp.makeConstraints({ make in
@@ -70,8 +74,7 @@ final class ErrorView: UIView {
         
         actionButton.snp.makeConstraints({ make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(imageView.snp_bottomMargin).offset(32)
-            make.bottom.equalToSuperview()
+            make.top.equalTo(titleLabel.snp_bottomMargin).offset(24)
         })
     }
     

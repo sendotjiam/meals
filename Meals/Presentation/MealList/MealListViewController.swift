@@ -35,6 +35,7 @@ final class MealListViewController: UIViewController {
     private lazy var errorView = {
         let view = ErrorView()
         view.delegate = self
+        view.configure(buttonTitle: "Try again")
         view.isHidden = true
         return view
     }()
@@ -42,7 +43,6 @@ final class MealListViewController: UIViewController {
     private let viewModel: MealListViewModelProtocol
     private let bag = DisposeBag()
     private let wireframe = MealListWireframe()
-    private var selectedLetter = "A"
     
     init(with viewModel: MealListViewModelProtocol) {
         self.viewModel = viewModel
@@ -57,7 +57,7 @@ final class MealListViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupBindings()
-        viewModel.onLoad(with: selectedLetter)
+        viewModel.onLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,7 +105,9 @@ extension MealListViewController {
         })
         errorView.snp.makeConstraints({ make in
             make.top.equalToSuperview().offset(16)
-            make.horizontalEdges.equalToSuperview().offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-16)
         })
         
     }
@@ -157,7 +159,7 @@ extension MealListViewController {
     }
     
     @objc private func didTapFab() {
-        wireframe.showConfigScreen(from: self, selected: selectedLetter)
+        wireframe.showConfigScreen(from: self, selected: viewModel.selectedLetter)
     }
     
     @objc private func didTapSearch() {
@@ -189,7 +191,7 @@ extension MealListViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderReusableView.identifier, for: indexPath) as? HeaderReusableView
-        headerView?.configure(title: "All meals starts with letter \(selectedLetter)")
+        headerView?.configure(title: "All meals starts with letter \(viewModel.selectedLetter)")
         return headerView ?? UICollectionReusableView()
     }
     
@@ -205,10 +207,10 @@ extension MealListViewController: UICollectionViewDelegate, UICollectionViewData
 
 extension MealListViewController: MealListConfigDelegate, ErrorViewDelegate {
     func didChoose(letter: String) {
-        selectedLetter = letter
-        viewModel.onLoad(with: letter)
+        viewModel.updateSelectedLetter(letter: letter)
+        viewModel.onLoad()
     }
     func didTapButton() {
-        viewModel.onLoad(with: selectedLetter)
+        viewModel.onLoad()
     }
 }
